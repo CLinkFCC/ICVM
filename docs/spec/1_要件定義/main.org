@@ -1,0 +1,40 @@
+#+Title: ICVM 要件定義 基本項目
+#+Author: 佐藤 陽花
+#+Date: 2021/10/23
+#+Language: Japanese
+#+Link: http://icvm.funcobal.fun/
+
+# http://bunko.jissho.jp/ : 叢言文庫/十書
+
+* 中間言語
+
+- 名称： _CRIE 正則共通中間言語環境 Common Regular Inter-Language Environment_
+
+**各個別言語コンパイラとICVMのインターフェース**となる中間言語としてCRIEを提供する。
+
+GHC の中間言語(主にCore言語)をベースとした関数型言語で、 **完全型付き** (ソースコードで型が省略されている箇所は意味解析のフェーズで完全に補われ、CLIE中間コード上では型のついてない箇所は存在しない)、また **並行・並列・分散** (cf: Oz言語)や
+、 **パターンマッチ** も言語として対応する。
+
+型や並行・並列・分散などの特性は、(より低層の) **アセンブリ言語としての中間言語** (STGを範にとる)でも同様に存在するが、パターンマッチはそうではない(case式に変換される)。
+cf: LLVM関係
+
+- https://qiita.com/Anko_9801/items/df4475fecbddd0d91ccc
+- https://scrapbox.io/mrsekut-p/LLVM_IR
+
+cf: Haskell関係
+
+- https://uhideyuki.sakura.ne.jp/studs/index.cgi/ja/HaskellInHaskell#fnref5
+- https://ilyaletre.hatenablog.com/entry/2017/12/10/195016
+- https://uhideyuki.sakura.ne.jp/studs/index.cgi/ja/thihnote
+
+cf： パターンマッチとか
+
+- https://zenn.dev/blackenedgold/books/compiling-pattern-matching/viewer/overview_of_compiler
+
+cf: 型付きアセンブリ言語
+
+- https://ipsj.ixsq.nii.ac.jp/ej/index.php?action=pages_view_main&active_action=repository_action_common_download&item_id=16434&item_no=1&attribute_id=1&file_no=1&page_id=13&block_id=8
+- https://slidesplayer.net/slide/14325542/
+- https://www.jstage.jst.go.jp/article/jssstconference/22/0/22_0_20/_article/-char/ja (about) => https://www.jstage.jst.go.jp/article/jssstconference/22/0/22_0_20/_pdf/-char/ja (pdf)
+
+** 並行・並列・分散
